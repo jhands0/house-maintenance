@@ -15,5 +15,27 @@ namespace backend.AddControllers
         {
             _context = context;
         }
+
+        // Create/Edit
+        [HttpPost]
+        public JsonResult CreateEdit(TaskEntry task)
+        {
+            if (task.Id == 0)
+            {
+                _context.Tasks.Add(task);
+            } else 
+            {
+                var taskInDb = _context.Tasks.Find(task.Id);
+
+                if (taskInDb == null)
+                    return new JsonResult(NotFound());
+
+                taskInDb = task;
+            }
+
+            _context.SaveChanges();
+
+            return new JsonResult(Ok(task))
+        }
     }
 }
