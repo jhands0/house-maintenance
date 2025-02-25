@@ -5,7 +5,7 @@ using backend.Data;
 
 namespace backend.AddControllers
 {
-    [Route("api/[controller]")]
+    [Route("api/[controller]/[action]")]
     [ApiController]
     public class TaskController : ControllerBase
     {
@@ -48,6 +48,15 @@ namespace backend.AddControllers
                 return new JsonResult(NotFound());
 
             return new JsonResult(Ok(result));
+        }
+
+        // Get all
+        [HttpGet]
+        public JsonResult GetAll()
+        {
+            var result = _context.Tasks.ToList();
+
+            return new JsonResult(result);
         }
 
         // Delete
