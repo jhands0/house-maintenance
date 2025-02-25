@@ -38,6 +38,7 @@ namespace backend.AddControllers
             return new JsonResult(Ok(task));
         }
 
+        // Get
         [HttpGet]
         public JsonResult Get(int id)
         {
@@ -49,6 +50,19 @@ namespace backend.AddControllers
             return new JsonResult(Ok(result));
         }
 
-        
+        // Delete
+        [HttpDelete]
+        public JsonResult Delete(int id)
+        {
+            var result = _context.Tasks.Find(id);
+
+            if (result == null)
+                return new JsonResult(NotFound());
+
+            _context.Tasks.Remove(result);
+            _context.SaveChanges();
+
+            return new JsonResult(NoContent());
+        }        
     }
 }
