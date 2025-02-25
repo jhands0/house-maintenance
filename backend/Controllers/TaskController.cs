@@ -35,7 +35,18 @@ namespace backend.AddControllers
 
             _context.SaveChanges();
 
-            return new JsonResult(Ok(task))
+            return new JsonResult(Ok(task));
+        }
+
+        [HttpGet]
+        public JsonResult Get(TaskEntry task)
+        {
+            var result = _context.Tasks.Find(id);
+
+            if (result == null)
+                return new JsonResult(NotFound());
+
+            return new JsonResult(Ok(result));
         }
     }
 }
