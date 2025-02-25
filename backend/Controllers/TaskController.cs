@@ -39,7 +39,7 @@ namespace backend.AddControllers
         }
 
         [HttpGet]
-        public JsonResult Get(TaskEntry task)
+        public JsonResult Get(int id)
         {
             var result = _context.Tasks.Find(id);
 
@@ -48,5 +48,7 @@ namespace backend.AddControllers
 
             return new JsonResult(Ok(result));
         }
+
+        
     }
 }
