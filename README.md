@@ -1,2 +1,2 @@
 # house-maintenance
-A simple CRUD app written in C# and TypeScript using ASP.NET Core and React
+A simple CRUD app written in C# and TypeScript using the ASP.NET Core and React frameworks
