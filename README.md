@@ -1,2 +1,2 @@
 # house-maintenance
-A simple CRUD web server written in C#
+A simple CRUD app written in C# and TypeScript using ASP.NET Core and React
