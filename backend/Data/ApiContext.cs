@@ -1,7 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using backend.Models;
 
-namespace backend.Data;
+namespace backend.Data
 {
     public class ApiContext : DbContext
     {
